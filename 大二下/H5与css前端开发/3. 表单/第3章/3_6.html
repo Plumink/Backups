@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  	<title>form属性示例</title>
+  	<meta charset="UTF-8">
+</head>
+<body>
+	<form id="testform" method="get" action="">
+		姓&nbsp;&nbsp;名：<input type="text" name="name1" autofocus="autofocus" required placeholder="请输入姓名"/>
+		<!-- required表示自动校验 -->
+		<!-- placeholder用于提示用户输入 -->
+		<br/>
+		
+		<!-- multiple属性可选择多个文件 -->
+		<br/>
+		<fieldset>
+			<legend style="color: red;">
+				范围
+			</legend>
+			<input type="file" multiple>
+		</fieldset>
+
+		<input type="submit" value="提交"/>
+
+
+	</form>
+	<br/>
+	自我介绍：<textarea name="textarea1" form="testform"></textarea>
+	
+</body>
+</html>
+
+

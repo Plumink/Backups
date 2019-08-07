@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="900" height="900" style="border: 1px solid red">
+
+    </canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            for(var i=0;i<50;i++){
+                var R = Math.floor(Math.random()*255);
+                var G = Math.floor(Math.random()*255);
+                var B = Math.floor(Math.random()*255);
+                context.globalAlpha = Math.random()*0.7+0.3;
+                context.fillStyle = "rgb("+R+","+G+","+B+")";
+                context.beginPath();
+                context.arc(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*80,0,2*Math.PI);
+                context.fill();
+
+
+            }
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #can{
+            border: 1px solid red;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="500" height="500">
+        你的浏览器不支持canvas
+        
+
+
+    </canvas>
+    <!-- 作用就是插入画布这个区域 -->
+    
+    
+</body>
+<script>
+    var can = document.getElementById("can");
+    var test = can.getContext('2d');//通过getContext()方法获得绘制的上下文环境
+    
+    // test.moveTo(100,100);
+    // test.lineTo(100,400);
+    // test.lineTo(400,400);
+    // test.lineTo(100,100);
+    
+    // test.lineWidth = 5;
+    // test.strokeStyle = "red";
+    // test.stroke();
+    // // test.arc(250,250,50,0,2.0*Math.PI);
+    // // test.fillStyle="#ffffff";
+    // // test.fill();
+    // // test.stroke();
+    // // test.moveTo(190,310);
+    // // test.lineTo(310,310);
+    // // test.stroke();
+
+    // test.beginPath();
+    // test.moveTo(200,100);
+    // test.lineTo(800,700);
+    // test.strokeStyle = "blue";
+    
+    // test.closePath();
+    // test.stroke();
+    // //先结束在划线，在绘制路径时要先开启一个新的路径
+    // test.beginPath();
+    // test.arc(0,500,50,0.5*Math.PI,1.8*Math.PI,true);
+    // test.lineWith = 5;
+    // test.stroke.Style = "#005588";
+    // test.closePath();
+    // test.stroke();
+
+
+    // for(var i=0;i<10;i++){
+    //     test.beginPath();
+    //     //test.arc(0,250,40+10*i,1.5*Math.PI,true);
+    //     test.arc(0,400,i*50,0,1*Math.PI,true)
+    //     test.stroke();
+    // }
+
+    // //绘制白的半圆
+    // test.beginPath();
+    // test.arc(250,250,80,1.5*Math.PI,0.5*Math.PI,false);
+    // test.fillStyle="#ffffff";
+    // test.closePath();
+    // test.fill();
+    // //绘制黑色的半圆
+    // test.beginPath();
+    // test.arc(250,250,80,1.5*Math.PI,0.5*Math.PI,true);
+    // test.fillStyle="#000000";
+    // test.closePath();
+    // test.fill();
+    // //绘制白色小圆
+    // test.beginPath();
+    // test.arc(250,210,40,2*Math.PI,false);
+    // test.fillStyle="#ffffff";
+    // test.closePath();
+    // test.fill();
+    // //绘制黑色小圆
+    // test.beginPath();
+    // test.arc(250,290,40,0.45*Math.PI,true);
+    // test.fillStyle="#000000";
+    // test.closePath();
+    // test.fill();
+    
+
+    test.rect(0,0,100,50);
+    test.stroke();
+
+
+
+
+
+
+</script>
+</html>

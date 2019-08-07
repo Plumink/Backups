@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="xueli02.css">
+</head>
+<body>
+    <form action="" method="get">
+        <input type="text" name="goods" placeholder="请输入想查找的商品" id="tt">
+        <input type="button" value="搜索" onclick="output()" id="sou">
+        <p class="one">最近搜索</p>
+        <div class="aoo">
+            <div id="msg" ></div>
+            <div id="clean" onclick="clean()">X</div>
+        </div>
+    </form>
+</body>
+<script>
+    function output(){
+        var data = document.getElementById("tt").value;
+        var tt = document.getElementById("tt");
+        var time = new Date().getTime();
+        if(data == ""){
+            alert("请输入商品名称！");
+        }else{
+            localStorage.setItem(time,data);
+
+            var word = document.getElementById("msg");
+            var result = '<span class="little">';
+            for(var i=0;i<localStorage.length;i++){
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                var date = new Date();
+                date.setTime(key);
+            }
+            result += value;
+            result +='</span>';
+            word.innerHTML += result;
+        }
+        document.getElementById("tt").value = "";
+    }
+    function clean(){
+        var msg = document.getElementById("msg");
+        localStorage.clear();
+        alert("全部数据被清除。");
+        msg.innerHTML="";
+
+    }
+</script>
+</html>

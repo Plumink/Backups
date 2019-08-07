@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="guajiang.css">
+
+</head>
+<body>
+    <canvas id="canvas" width="240" height="65"></canvas>
+    <canvas id="can" width="240" height="65"></canvas>
+    
+</body>
+<script>  
+    //第一个canvas放置图片
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+
+        var img = new Image();
+        img.src = 'img/'+parseInt(3*Math.random()+1)+'.png';
+        img.onload = function(){
+            context.drawImage(img,0,0,240,65);
+        }
+    }
+    //第二个canvas放置蒙版
+    var can = document.getElementById("can");
+    var con = can.getContext("2d");
+
+    con.fillStyle = '#aaaaaa';
+    con.fillRect(0,0,240,65);
+    con.fill();
+    con.globalCompositeOperation = 'destination-out';
+
+
+    var mouse = false;
+    // 鼠标按下
+    can.onmousedown = function(e){
+        mouse = true;
+        x = e.clientX-10;
+        y = e.clientY-10;
+        con.beginPath();
+        con.arc(x, y, 10, 0, 2 * Math.PI);
+        con.fill();
+        con.closePath();
+    }
+
+    
+    //鼠标抬起
+    
+    document.onmouseup = function(){
+        mouse = false;
+        var j=0;
+        var a = con.getImageData(0,0,240,65)
+        for(var i=0;i<a.data.length;i+=4){
+            if(a.data[i]==0)
+                j++;
+        }
+        // 判断是否达到85%
+        if(j > a.data.length/4*0.85){
+            con.clearRect(0,0,240,65);
+        }
+    }
+    // 鼠标移动
+    can.onmousemove = function(e){
+        if(mouse){
+            x = e.clientX-10;
+            y = e.clientY-10;
+            con.beginPath();
+            con.arc(x, y, 10, 0, 2 * Math.PI);
+            con.fill();
+            con.closePath();
+        }
+    }
+
+</script>
+</html>

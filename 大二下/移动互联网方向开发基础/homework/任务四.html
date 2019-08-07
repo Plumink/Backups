@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Foo(userName,age){
+        this.userName = userName;
+        this.age = age;
+
+    }
+    Foo.prototype.sayHello = function(){
+        console.log(this.userName + " say hello ");
+
+    }
+    var f1 = new Foo("zhangsan",20);
+    /*
+        关系一：f1的__proto__属性与其构造函数Foo的prototype属性，指向相同，
+        所以通过Foo实例化得来的对象可以调用Foo.prototype中的方法
+    
+    */
+    console.log(f1.__proto__ == Foo.prototype);//true
+
+    console.log(Foo.prototype.__proto__ == Object.prototype)//true
+    /*
+        关系二：构造函数Foo的__proto__属性和对象Object的prototype属性的指向相同
+        JS中函数也是对象故构造函数Foo也有__proto__属性
+    */
+
+    console.log(Object.prototype.__proto__);//null
+    /*
+        关系三：对象的原型链一直向上查询，最终得到的是null。
+    */
+
+    /*
+        关系四：Foo()的原型对象是Foo.prototype;
+        实例化对象f1通过__proto__属性也指向原型对象Foo.prototype.
+
+    
+    */
+
+    console.log(Foo.prototype.constructor);//Foo函数
+    /*
+        关系五：constructor属性指向对象的构造函数，Foo.prototype是Foo()
+        的原型对象，实例化对象f1的__proto__属性也是Foo.prototype，所以
+        Foo.prototype所指向的构造函数是Foo().
+    */
+
+    console.log(Foo.__proto__ === Function.prototype);//true
+    /*
+        关系六:如果把函数Foo当成实例对象的话，其构造函数是Function()，
+        其原型对象是Function.prototype；类似地，函数Object的构造函数也是Function()，
+        其原型对象是Function.prototype
+    */
+
+    console.log(Function.prototype.__proto__ === Object.prototype);//true
+    /*
+        关系七：将Function.prototype作为实例化对象，则原型对象是Object.prototype.
+        原型函数是Object(),在JS中所有的对象都可以看作是Object()构造函数的new操作的实例化结果。
+    */
+
+    var o1 = new Object();
+    console.log(o1.__proto__ === Object.prototype);//true
+    /*
+        关系八：定义对象o1，同对象f1类似，o1由构造函数Object()实例化而来，
+        故o1.__proto__属性和Object.prottype属性相同
+    */
+
+    /*
+        关系九：Object()的原型对象是Object.prototype;
+        实例化对象o1通过__proto__属性也指向原型对象Object.prototype.
+        o1由Object()实例化而来，故Object()的原型对象是Object.prototype;
+    */
+
+    console.log(Object.prototype.constructor === Object);//true
+    /*
+        关系十：实例对象Object.prototype本身具有constructor属性，
+        故指向构造函数Object.
+
+    */
+    console.log(Object.__proto__ === Function.prototype);//true
+    /*
+        关系十一：把函数Foo当成实例对象的话，其构造函数是Function()，其原型对象是Function.prototype；
+        类似地，函数Object的构造函数也是Function()，其原型对象是Function.prototype
+    */
+    console.log(typeof(Function.prototype));//function
+
+     /*
+        关系十二：Function.prototype的类型是function，故Function的原型对象是Function.prototype。
+
+     */
+     console.log(Function.prototype.constructor === Function);//true
+     /*
+        关系十三：实例对象Function.prototype本身具有constructor属性，
+        故指向构造函数Function.
+     */
+     console.log(Function.__proto__ === Function.prototype);//true
+     /*
+        关系十四：对象Function具有__proto__属性，向上寻找为Function.prototype
+        Function的构造函数是Function.
+     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

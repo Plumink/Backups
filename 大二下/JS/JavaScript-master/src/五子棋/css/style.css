@@ -1,0 +1,13 @@
+/**
+ * create by fuziwang 2018/11/21
+ */
+*{
+    margin:0px;
+    padding:0px;
+    background-color:#ccc;
+}
+#canvas{
+    display: block;
+    margin:50px auto;
+    background-color:#fff;
+}

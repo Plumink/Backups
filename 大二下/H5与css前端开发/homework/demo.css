@@ -1,0 +1,12 @@
+.one{
+    position: fixed;
+}
+.two{
+position: relative;
+top: 100px;
+
+}
+.three{
+    position: relative;
+    top: 100px;
+}

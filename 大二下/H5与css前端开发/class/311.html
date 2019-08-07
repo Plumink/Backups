@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="lon"></div>
+    <div id="lat"></div>
+    <div id="accuracy"></div>
+    <div id="al"></div>
+    <script>
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition,errorPosition);
+    }else{
+        document.write("你的浏览器不支持H5地理位置定位！！！");
+
+    }
+
+    function getE(id){
+        return document.getElementById(id);
+    }//重复的代码可以封装成一个函数，避免多次敲代码
+
+    function showPosition(data){
+        getE("lon").innerHTML=("经度"+data.coords.longitude);
+        getE("lat").innerHTML=("纬度"+data.coords.latitude);
+        getE("accuracy").innerHTML=("精确度"+data.coords.accuracy+"米");
+        getE("al").innerHTML=("海拔"+data.coords.altitude);
+    }
+
+    function errorPosition(err){
+        document.write(err.code+":"+err.message);
+    }
+
+    
+    </script>
+</body>
+</html>

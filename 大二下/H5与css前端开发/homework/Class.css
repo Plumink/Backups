@@ -1,0 +1,21 @@
+.self{
+    font-size: 30px;
+    font-weight: 900;
+}
+#one{
+    width: 600px;
+    font-weight: bold;
+
+}
+.one1{
+    margin-top: 2px;
+}
+.text_red{
+    color: red;
+}
+#ww{
+    width: 40px;
+}
+legend{
+    color: red;
+}

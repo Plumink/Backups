@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+            background: rgb(236, 238, 233);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1" width="500" height="500">
+        你的浏览器不支持canvas
+    </canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas1");//通过ID找到canvas元素
+    var context = canvas.getContext("2d");//设置变量
+
+    context.moveTo(0,0);//起始点
+    context.lineTo(100,100);//开始划线到第一个点
+    context.lineTo(200,0);//开始画线到第二个点
+    context.lineWidth=10;//设置线的粗细
+    context.strokeStyle="blue";//设置线的颜色
+    context.stroke();//结束划线
+</script>
+</html>

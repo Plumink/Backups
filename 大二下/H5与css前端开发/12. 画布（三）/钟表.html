@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    function timer() {
+        context.clearRect(0,0,500,500);//清空画布
+
+        //绘制表盘
+        context.beginPath();
+        context.lineWideth = 15;
+        context.strokeStyle = "greenyellow";
+        context.arc(250,250,210,0,2*Math.PI);
+        context.stroke();
+        context.closePath();
+
+        //分针刻度
+        for(var i=0;i<60;i++){
+            context.save();
+            context.beginPath();//开启新的路径
+            //设置（0,0）点
+            context.translate(250,250);//从（0,0）点平移到圆心
+            context.rotate(6*i*Math.PI/180);//旋转
+            context.strokeStyle="#000";
+            context.lineWideth=4;
+            context.moveTo(0,170);
+            context.lineTo(0,185);
+            context.stroke();
+            context.closePath();
+            context.restore();
+
+        }
+        //时针刻度
+        for(var i=0;i<12;i++){
+            context.save();
+            context.beginPath();//开启新的路径
+            //设置（0,0）点
+            context.translate(250,250);//从（0,0）点平移到圆心
+            context.rotate(30*i*Math.PI/180);//旋转
+            context.strokeStyle="#f00";
+            context.lineWideth=6;
+            context.moveTo(0,160);
+            context.lineTo(0,185);
+            context.fillText(i+1,70,-120);
+            context.stroke();
+            context.closePath();
+            context.restore();
+
+        }
+
+
+
+        
+    }
+    timer();
+    setInterval(timer, 1000);
+</script>
+</body>
+</html>

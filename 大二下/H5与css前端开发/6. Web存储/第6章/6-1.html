@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6-1 LocalStorage set/get Item</title>
+	<link rel="icon" href="../img/snowflake.png" />
+	<script>
+		window.onload = function(){
+			if(!window.localStorage){
+				alert("浏览器不支持localstorage!");
+			}else{
+				//键名必须是字符串
+				localStorage.setItem("key0",666);
+				localStorage["key1"] = "777";
+				localStorage.key2 = "888";
+				alert(typeof(alert(localStorage.getItem("key0"))));
+				console.log();
+				console.log(localStorage["key1"]);
+				console.log(localStorage.key2);
+				
+			}
+		}
+
+	</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="icon" href="imgages/snowflake.png" />
+	<style type="text/css">
+		div{
+			border:2px solid gray;
+			width:180px;
+			height:180px;
+		}
+	</style>
+</head>
+<body>
+	<div ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<img src="images/taidi.jpg" id="dragimg" draggable="true" ondragstart="drag(event)"/>
+</body>
+<script>
+	
+	function drag(ev){
+		ev.dataTransfer.setData("Text",ev.target.id);
+	}
+	function allowDrop(ev){
+		ev.preventDefault();
+	}
+	function drop(ev){
+		ev.preventDefault();
+		var data=ev.dataTransfer.getData("Text");
+		ev.target.appendChild(document.getElementById(data));
+		alert("移动成功！")
+	}
+
+</script>
+</html>
